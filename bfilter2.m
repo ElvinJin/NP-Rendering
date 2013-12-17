@@ -28,7 +28,7 @@ w = ceil(w);
 % Verify bilateral filter standard deviations.
 if ~exist('sigma','var') || isempty(sigma) || ...
       numel(sigma) ~= 2 || sigma(1) <= 0 || sigma(2) <= 0
-   sigma = [3 0.1];
+   sigma = [3 3];
 end
 
 % Apply either grayscale or color bilateral filtering.
