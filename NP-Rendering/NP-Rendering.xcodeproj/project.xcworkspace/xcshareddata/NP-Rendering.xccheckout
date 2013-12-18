@@ -12,6 +12,8 @@
 	<dict>
 		<key>11399CF3-B310-4D42-8291-1BE1801A0AB4</key>
 		<string>https://github.com/ElvinJin/NP-Rendering.git</string>
+		<key>E8D69C3D-8534-45A6-82ED-2237790C20BB</key>
+		<string>https://github.com/ElvinJin/GPUImage.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>NP-Rendering/NP-Rendering.xcodeproj/project.xcworkspace</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>11399CF3-B310-4D42-8291-1BE1801A0AB4</key>
 		<string>../../..</string>
+		<key>E8D69C3D-8534-45A6-82ED-2237790C20BB</key>
+		<string>../../../../GPUImage</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/ElvinJin/NP-Rendering.git</string>
@@ -28,6 +32,14 @@
 	<string>11399CF3-B310-4D42-8291-1BE1801A0AB4</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E8D69C3D-8534-45A6-82ED-2237790C20BB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>GPUImage</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
