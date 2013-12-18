@@ -1,4 +1,4 @@
-function r = quantization(img,q,n)
+function r = quantization(img,q)
     [l,a,b] = convertLAB(img);
     [h,w] = size(l);
     lmax = max(max(l));
@@ -15,8 +15,8 @@ function r = quantization(img,q,n)
     for i = 1:h
         for j = 1:w
             for k = 1:q
-                if(level(k) <= l(i,j) && l(i,j) <= level(k+1))
-                    l(i,j) = tanh(n*(l(i,j)-(level(k)+level(k+1))/2))/dq + (level(k)+level(k+1))/2;
+                if(level(k) <= l(i,j) & l(i,j) <= level(k+1))
+                    l(i,j) = tanhlevel(k);
                     
                 end
             end

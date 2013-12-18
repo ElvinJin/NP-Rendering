@@ -3,7 +3,7 @@ I=imread(filename);
 I= im2double(I);
 I1=bfilter2(I,w,sigma);
 [l,a,b] = convertLAB(I1);
-I1 = quantization(I1,4);
+I1 = quantization(I1,5,10);
 %imshow(I1);
 I2 = DoG(l,1.0,1.7,0.98);
 I2 = smmoth(I2);
