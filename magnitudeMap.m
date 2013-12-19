@@ -1,6 +1,7 @@
 function C = magnitudeMap(G, gradientImg)
 	[h, w] = size(G{1});
-
+    dd = waitbar(0,'Processing...');
+    set(dd,'Name','Magnitude Progress');
 	for i = 1:h
 		for j = 1:w
 			valueVec = [G{1}(i,j),G{2}(i,j),G{3}(i,j),G{4}(i,j),G{5}(i,j),G{6}(i,j),G{7}(i,j),G{8}(i,j)];
@@ -14,7 +15,8 @@ function C = magnitudeMap(G, gradientImg)
 					break;
 				end
 			end
-		end
-	end
-
+        end
+        waitbar(i/h);
+    end
+    close(dd);
 end

@@ -52,7 +52,7 @@
                                                                    delegate:self
                                                           cancelButtonTitle:@"Cancel"
                                                      destructiveButtonTitle:nil
-                                                          otherButtonTitles:@"Grayscale", @"Sepia", @"Sketch", @"Pixellate", @"Color Invert", @"Toon", @"Pinch Distort", @"None", nil];
+                                                          otherButtonTitles:@"Sketch", @"Toon", @"None", nil];
     [filterActionSheet showFromBarButtonItem:sender animated:YES];
 }
 
@@ -98,28 +98,10 @@
     
     switch (buttonIndex) {
         case 0:
-            selectedFilter = [[GPUImageGrayscaleFilter alloc] init];
-            break;
-        case 1:
-            selectedFilter = [[GPUImageSepiaFilter alloc] init];
-            break;
-        case 2:
             selectedFilter = [[GPUImageSketchFilter alloc] init];
             break;
-        case 3:
-            selectedFilter = [[GPUImagePixellateFilter alloc] init];
-            break;
-        case 4:
-            selectedFilter = [[GPUImageColorInvertFilter alloc] init];
-            break;
-        case 5:
+        case 1:
             selectedFilter = [[GPUImageToonFilter alloc] init];
-            break;
-        case 6:
-            selectedFilter = [[GPUImagePinchDistortionFilter alloc] init];
-            break;
-        case 7:
-            selectedFilter = [[GPUImageFilter alloc] init];
             break;
         default:
             break;
