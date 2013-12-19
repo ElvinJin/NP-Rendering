@@ -94,7 +94,7 @@ function pencil_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 px=getframe(handles.picture);
-new = adjust(px.cdata);
+new = sketch(px.cdata);
 imshow(new);
 
 
