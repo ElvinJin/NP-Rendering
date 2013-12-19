@@ -78,7 +78,7 @@ function openbutton_Callback(hObject, eventdata, handles)
 % hObject    handle to openbutton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-[filename,pathname]=uigetfile({'*.jpg';'*.bmp';'*.gif'},'Ñ¡ÔñÍ¼Æ¬');
+[filename,pathname]=uigetfile({'*.jpg';'*.bmp';'*.gif';'*.png'},'Ñ¡ÔñÍ¼Æ¬');
 if isequal(filename,0)
     disp('Users Selected Canceled');
 else
