@@ -15,7 +15,7 @@ function X = sketch(originalImg)
 	gradientImg = mat2gray(gradientImg,[0.02 0.35]); % Scale the gradient img
 
 	% Built 8 directions
-	L = directions1(sketchSize);
+	L = directions(sketchSize);
 
 	% Greate response map G{i} = L{i} * gradientImg
 	for i = 1:8

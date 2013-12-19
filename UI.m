@@ -120,7 +120,6 @@ if ~isequal(filename,0)
     %saveas(gcf,str,'bmp');
     %px.cdata = getappdata(gcf,'Timg');
     imwrite(px.cdata,str,'bmp');
-    close(gcf);
 else
     disp('Failed to save the picture.');
 end;
