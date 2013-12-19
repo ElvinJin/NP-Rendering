@@ -1,12 +1,22 @@
 Summary of the csci3290 final project
-HAN Zuohao 1155014316 JIN Peng 1155014559
+
+HAN Zuohao 1155014316
+JIN Peng 1155014559
+
 1.Implementation
-(i)cartoon: 
-Convert the original rgb image into LAB color and norm the L channel to [0,1]---------------converLAB()
-Implement Biateral Filter(Using the code online)--------------------------------------------bfilter2()
-Perform the edge extraction in difference-of-Gaussians and smoothe the dege using tanh()----DoG() smooth()
-Perform the quantization by seperate he lightness level and smooth them---------------------quantization()
+
+UI.m: the UI interface of our application.
+
+(i)cartoon(all the functions of cartoon are included in UI.m): 
+Convert the original rgb image into LAB color and norm the L channel to [0,1]-----------------converLAB()
+Implement Biateral Filter(Using the code online)----------------------------------------------bfilter2()
+Perform the edge extraction in difference-of-Gaussians and smoothe the dege using tanh()------DoG() smooth()
+Perform the quantization by seperate he lightness level and smooth them-----------------------quantization()
 Compose the quanticized result and the edge
+
 (ii)pencil
-
-
+Based on the algorithm on the paper, we implemented following functions:
+Main file for running texture rendering process, it includes the texture rendering algorithm--sketch.m
+Create strokes of 8 different directors-------------------------------------------------------directions(sketchSize)
+Create the magnitude map for all the directions-----------------------------------------------magnitudeMap(G, gradientImg)
+Create the new probability distribution of the pixel values-----------------------------------createMixedP
