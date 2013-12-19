@@ -26,6 +26,7 @@ function varargout = UI(varargin)
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
+global originalImg;
 gui_State = struct('gui_Name',       mfilename, ...
                    'gui_Singleton',  gui_Singleton, ...
                    'gui_OpeningFcn', @UI_OpeningFcn, ...
@@ -84,6 +85,7 @@ if isequal(filename,0)
 else
 str=[pathname filename];
 im = imread(str);
+oringinalImg = im;
 axes(handles.picture);%axes1是坐标轴的标示
 imshow(im);
 end;

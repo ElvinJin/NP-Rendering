@@ -1,0 +1,12 @@
+Summary of the csci3290 final project
+HAN Zuohao 1155014316 JIN Peng 1155014559
+1.Implementation
+(i)cartoon: 
+Convert the original rgb image into LAB color and norm the L channel to [0,1]---------------converLAB()
+Implement Biateral Filter(Using the code online)--------------------------------------------bfilter2()
+Perform the edge extraction in difference-of-Gaussians and smoothe the dege using tanh()----DoG() smooth()
+Perform the quantization by seperate he lightness level and smooth them---------------------quantization()
+Compose the quanticized result and the edge
+(ii)pencil
+
+
