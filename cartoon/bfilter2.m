@@ -1,10 +1,4 @@
-%简单地说:
-%A为给定图像，归一化到[0,1]的矩阵
-%W为双边滤波器（核）的边长/2
-%定义域方差σd记为SIGMA(1),值域方差σr记为SIGMA(2)
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Pre-process input and select appropriate filter.
 function B = bfilter2(A,w,sigma)
 
 % Verify that the input image exists and is valid.
