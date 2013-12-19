@@ -15,7 +15,7 @@ function X = sketch(filename)
 	% gradientImg = mat2gray(gradientImg,[0.02 0.35]); % Scale the gradient img
 
 	% % Built 8 directions
-	% L = directions1(sketchSize);
+	% L = directions(sketchSize);
 
 	% % Greate response map G{i} = L{i} * gradientImg
 	% for i = 1:8
@@ -34,15 +34,33 @@ function X = sketch(filename)
 	% stroke = ones(h,w) - S;
 	% imshow(stroke);
 %%%
-	%% Step 3
-	% Create 3 tone P
-	mixedP = createMixedP;
+	% %% Step 3
+	% % Create 3 tone P
+	% mixedP = createMixedP;
 
-	%% Step 4
-	shadeImg = histeq(I, mixedP);
+	% %% Step 4
+	% shadeImg = histeq(I, mixedP);
 
-	imshow(shadeImg);
+	% imshow(shadeImg);
 
 	% imshow(I4);
 	% imwrite(new,'result.jpg');
+%%%
+	% Create pencil texture
+	alpha = 0;
+	szPatch = 50;
+	szOverlap = 10;
+	isdebug = 1;
+
+	targetImg = imread('leonardo.jpg');
+	inputImg = imread('texture3.png');
+
+	t2 = texture_transfer(inputImg, targetImg, alpha, szPatch, szOverlap, isdebug);
+
+	figure(1)
+	imshow(inputImg);
+	figure(2)
+	imshow(targetImg);
+	figure(3)
+	imshow(t2, [])
 end
