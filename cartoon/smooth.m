@@ -1,4 +1,4 @@
-function img = smmoth(img)
+function img = smooth(img)
     [h,w] = size(img);
     for i = 1:h
         for j = 1:w
