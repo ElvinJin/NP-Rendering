@@ -46,7 +46,7 @@ function X = sketch(originalImg)
 %%%
 	% Cut pencil texture
 	J = shadeImg;
-	textureSource = im2double(imread('pencil2.jpg'));
+	textureSource = im2double(imread('pencil.png'));
 	H = textureSource(1:h, 1:w);
 
 	% Texture Rendering
