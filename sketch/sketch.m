@@ -36,10 +36,12 @@ function X = sketch(filename)
 %%%
 	%% Step 3
 	% Create 3 tone P
-	P = changeTone(I);
+	mixedP = createMixedP;
 
-	tone = (P{1}.*52+P{2}.*37+P{3}.*11)/(sum(sum(P{1}))+sum(sum(P{2}))+sum(sum(P{3})));
-	imshow(tone)
+	%% Step 4
+	shadeImg = histeq(I, mixedP);
+
+	imshow(shadeImg);
 
 	% imshow(I4);
 	% imwrite(new,'result.jpg');

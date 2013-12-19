@@ -136,15 +136,15 @@ S4=zeros(1,256);
 for i=1:256
     S2(i) = (exp((i - 256)/9.0))/9.0;
 end
-S2 = S2 * 76;
+S2 = S2 * 52;
 for i = 106:226
     S3(i) = 1.0/(225.0 - 105.0);
 end
-S3 = S3 * 22;
+S3 = S3 * 37;
 for i=1:256
     S4(i) = 1/sqrt(2*3.14*121) * exp((i-90)*(i-90)/-242.0);
 end
-S4 = S4 * 2;
+S4 = S4 * 11;
 S1 = (S2 + S3 + S4)/(sum(S2)+sum(S3)+sum(S4));
 
 new = histeq(grayPic,S1);

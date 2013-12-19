@@ -1,5 +1,5 @@
 function adjust(filename)
-sourcePic = imread(filename); %读取原图象
+sourcePic = imread(filename); %露脕脠隆脭颅脥录脧贸
 
 [m,n,o]=size(sourcePic);
 
@@ -9,7 +9,7 @@ figure,imshow(sourcePic);
 
 figure,imshow(grayPic);
 
-gp=zeros(1,256); %计算各灰度出现的概率
+gp=zeros(1,256); %录脝脣茫赂梅禄脪露脠鲁枚脧脰碌脛赂脜脗脢
 
 for i=1:256
 
@@ -19,12 +19,12 @@ end
 
 figure,bar(0:255,gp);
 
-title('原图像直方图');
+title('脭颅脥录脧帽脰卤路陆脥录');
 
-xlabel('灰度值');
+xlabel('禄脪露脠脰碌');
 
-ylabel('出现概率');
- %计算新的各灰度出现的概率
+ylabel('鲁枚脧脰赂脜脗脢');
+ %录脝脣茫脨脗碌脛赂梅禄脪露脠鲁枚脧脰碌脛赂脜脗脢
 
 S1=zeros(1,256);
 S2=zeros(1,256);
@@ -34,21 +34,21 @@ S4=zeros(1,256);
 for i=1:256
     S2(i) = (exp((i - 256)/9.0))/9.0;
 end
-S2 = S2 * 76;
+S2 = S2 * 52;
 for i = 106:226
     S3(i) = 1.0/(225.0 - 105.0);
 end
-S3 = S3 * 22;
+S3 = S3 * 37;
 for i=1:256
     S4(i) = 1/sqrt(2*3.14*121) * exp((i-90)*(i-90)/-242.0);
 end
-S4 = S4 * 2;
+S4 = S4 * 11;
 S1 = (S2 + S3 + S4)/(sum(S2)+sum(S3)+sum(S4));
 
 new = histeq(grayPic,S1);
 imwrite(new,'my.jpg');
 figure,imshow(new);
-gp=zeros(1,256); %计算各灰度出现的概率
+gp=zeros(1,256); %录脝脣茫赂梅禄脪露脠鲁枚脧脰碌脛赂脜脗脢
 
 for i=1:256
 
@@ -58,10 +58,10 @@ end
 
 figure,bar(0:255,gp);
 
-title('图像直方图');
+title('脥录脧帽脰卤路陆脥录');
 
-xlabel('灰度值');
+xlabel('禄脪露脠脰碌');
 
-ylabel('出现概率');
+ylabel('鲁枚脧脰赂脜脗脢');
 
 end
