@@ -1,66 +1,84 @@
 function X = sketch(filename)
 	I = rgb2gray(im2double(imread(filename)));
 %%%
-	% [h,w] = size(I);
-	% if h < w
-	% 	sketchSize = ceil(h/30);
-	% else
-	% 	sketchSize = ceil(w/30);
-	% end
+	[h,w] = size(I);
+	if h < w
+		sketchSize = ceil(h/30);
+	else
+		sketchSize = ceil(w/30);
+	end
 
-	% %% Step 1
-	% % Create gradient of the image
-	% [x, y] = gradient(I);
-	% gradientImg = sqrt(x.*x + y.*y);
-	% gradientImg = mat2gray(gradientImg,[0.02 0.35]); % Scale the gradient img
+	%% Step 1
+	% Create gradient of the image
+	[x, y] = gradient(I);
+	gradientImg = sqrt(x.*x + y.*y);
+	gradientImg = mat2gray(gradientImg,[0.02 0.35]); % Scale the gradient img
 
-	% % Built 8 directions
-	% L = directions(sketchSize);
+	% Built 8 directions
+	L = directions1(sketchSize);
 
-	% % Greate response map G{i} = L{i} * gradientImg
-	% for i = 1:8
-	% 	G{i} = conv2(gradientImg, L{i}, 'same');
-	% 	% figure, imshow(G{i});
-	% end
+	% Greate response map G{i} = L{i} * gradientImg
+	for i = 1:8
+		G{i} = conv2(gradientImg, L{i}, 'same');
+		% figure, imshow(G{i});
+	end
 
-	% % Create magnitude map for all the directions
-	% C = magnitudeMap(G, gradientImg);
+	% Create magnitude map for all the directions
+	C = magnitudeMap(G, gradientImg);
 
-	% %% Step 2
-	% S = zeros(h,w);
-	% for i = 1:8
-	% 	S = S + conv2(C{i}, L{i}, 'same');
-	% end
-	% stroke = ones(h,w) - S;
-	% imshow(stroke);
+	%% Step 2
+	S = zeros(h,w);
+	for i = 1:8
+		S = S + conv2(C{i}, L{i}, 'same');
+	end
+	stroke = ones(h,w) - S;
 %%%
-	% %% Step 3
-	% % Create 3 tone P
-	% mixedP = createMixedP;
+	%% Step 3
+	% Create 3 tone P
+	mixedP = createMixedP;
 
-	% %% Step 4
-	% shadeImg = histeq(I, mixedP);
+	%% Step 4
+	shadeImg = histeq(I, mixedP);
 
 	% imshow(shadeImg);
 
 	% imshow(I4);
-	% imwrite(new,'result.jpg');
 %%%
-	% Create pencil texture
-	alpha = 0;
-	szPatch = 50;
-	szOverlap = 10;
-	isdebug = 1;
+	% Cut pencil texture
+	J = shadeImg;
+	imshow(J)
+	textureSource = im2double(imread('pencil2.jpg'));
+	H = textureSource(1:h, 1:w);
 
-	targetImg = imread('leonardo.jpg');
-	inputImg = imread('texture3.png');
+	% Texture Rendering
+	B = 0.2:0.2:2;
 
-	t2 = texture_transfer(inputImg, targetImg, alpha, szPatch, szOverlap, isdebug);
+	part2 = 0.2*norm(gradient(B),2)^2;
 
-	figure(1)
-	imshow(inputImg);
-	figure(2)
-	imshow(targetImg);
-	figure(3)
-	imshow(t2, [])
+	for i = 1:h
+		for j = 1:w
+			for x = 1:10
+				vector(x) = norm((0.2 * x * log(H(i,j)) - log(J(i,j))),2)^2;
+			end
+			minValue = min(vector);
+			for x = 1:10
+				if vector(x) == minValue
+					part1 = 0.2*x;
+					break;
+				end
+			end
+			Bstar(i,j) = part1+part2;
+		end
+	end
+
+	T = H .^ Bstar;
+	% T = mat2gray(T);
+	% figure,imshow(T);
+
+	% Step 6
+	R = stroke .* T;
+
+	figure,imshow(R);
+
+
 end
