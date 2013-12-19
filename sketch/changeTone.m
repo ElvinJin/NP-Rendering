@@ -28,9 +28,9 @@ function P = changeTone(grayImg)
         end
     end
 
-    P{1} = mat2gray(P{1});
-    P{2} = mat2gray(P{2}).*0.8;
-    P{3} = mat2gray(P{3});
+    % P{1} = mat2gray(P{1});
+    % P{2} = mat2gray(P{2}).*0.8;
+    % P{3} = mat2gray(P{3});
 
 
     % figure, imshow(P{2});

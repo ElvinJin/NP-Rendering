@@ -36,11 +36,10 @@ function X = sketch(filename)
 %%%
 	%% Step 3
 	% Create 3 tone P
-	% P = changeTone(I);
+	P = changeTone(I);
 
-	% tmp = P{1}.*11+P{2}.*37+P{3}.*52;
-	% tone = mat2gray(tmp);
-	% imshow(tone)
+	tone = (P{1}.*52+P{2}.*37+P{3}.*11)/(sum(sum(P{1}))+sum(sum(P{2}))+sum(sum(P{3})));
+	imshow(tone)
 
 	% imshow(I4);
 	% imwrite(new,'result.jpg');
