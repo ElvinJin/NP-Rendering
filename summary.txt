@@ -20,3 +20,6 @@ Main file for running texture rendering process, it includes the texture renderi
 Create strokes of 8 different directors-------------------------------------------------------directions(sketchSize)
 Create the magnitude map for all the directions-----------------------------------------------magnitudeMap(G, gradientImg)
 Create the new probability distribution of the pixel values-----------------------------------createMixedP
+
+(iii)iOS app using external framework
+In the folder /iOS there is our iOS project file for this project which uses external framework. Its effects are included in the framework running on GPU of iPhone. We tryed writing our own effect but we found it needs to use openGV ES, which we cannot handle that within this limited time, so we give up writing our own filter.
